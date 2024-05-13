@@ -62,6 +62,7 @@ export default function loaded() {
                 if (!$('.header').hasClass('slim')) {
                     $('.header').addClass('slim');
                 }
+                // $('.header').css('height', `250px`);
                 $('.header').css('height', `${mobileHeaderHeight - searchHeight}px`);
                 $('body').css('padding-top', `${mobileHeaderHeight - searchHeight}px`);
                 $('.navUser-item--mobile-search').css('top', '0');

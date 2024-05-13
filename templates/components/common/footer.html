@@ -30,15 +30,16 @@
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
         <section class="footer-info 4a616d6573">
-            <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-categories">
+            <article class="footer-info-col footer-info-dropdown" data-section-type="footer-categories">
                 <h5 class="footer-info-heading">
-                    {{lang 'footer.categories'}}
+                    Shop
+                    <!-- {{lang 'footer.categories'}} -->
                     <i class="icon" aria-hidden="true">
                         <svg><use xlink:href="#icon-downselector" /></svg>
                     </i>
                 </h5>
                 <ul class="footer-info-list">
-                    {{#each categories}}
+                    {{#each (limit categories 5)}}
                         <li>
                             <a href="{{url}}">{{name}}</a>
                         </li>
@@ -51,7 +52,27 @@
                 </ul>
             </article>
 
-            <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-webPages">
+            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+                <article class="footer-info-col footer-info-dropdown" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading">
+                        Top Brands
+                        <!-- {{lang 'footer.brands'}} -->
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-downselector" /></svg>
+                        </i>
+                    </h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit shop_by_brand 4)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                    </ul>
+                </article>
+            {{/and}}
+
+            <article class="footer-info-col footer-info-dropdown" data-section-type="footer-webPages">
                 <h5 class="footer-info-heading">
                     {{lang 'footer.navigate'}}
                     <i class="icon" aria-hidden="true">
@@ -69,34 +90,40 @@
                     </li>
                 </ul>
             </article>
-        
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-                <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-brands">
-                    <h5 class="footer-info-heading">
-                        {{lang 'footer.brands'}}
-                        <i class="icon" aria-hidden="true">
-                            <svg><use xlink:href="#icon-downselector" /></svg>
-                        </i>
-                    </h5>
-                    <ul class="footer-info-list">
-                        {{#each shop_by_brand}}
-                            <li>
-                                <a href="{{url}}">{{name}}</a>
-                            </li>
-                        {{/each}}
-                        <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                    </ul>
-                </article>
-            {{/and}}
+
+            <article class="footer-info-col footer-info-dropdown" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">
+                    Customer Service
+                    <!-- {{lang 'footer.navigate'}} -->
+                    <i class="icon" aria-hidden="true">
+                        <svg><use xlink:href="#icon-downselector" /></svg>
+                    </i>
+                </h5>
+                <ul class="footer-info-list">
+                        <li>
+                            <a href="/privacy-policy">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="/return-and-refund/">Return &amp; Refund</a>
+                        </li>
+                        <li>
+                            <a href="/contact-us/">Contact Us</a>
+                        </li>
+                        <!-- <li>
+                            <a href="/contact-us/">Store Location</a>
+                        </li> -->
+                    <!-- {{#each pages}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}} -->
+                    <!-- <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li> -->
+                </ul>
+            </article>
             
-            {{#if theme_settings.social_icons_footer}}
-                <article class="footer-info-col footer-mobile-limited footer-info-col--small" data-section-type="footer-webPages">
-                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
-                    {{> components/common/social-links}}
-                </article>
-            {{/if}}
-            
-            {{#if settings.address}}
+            <!-- {{#if settings.address}}
                 <article class="footer-info-col footer-mobile-limited footer-info-col--small" data-section-type="storeInfo">
                     <h5 class="footer-info-heading footer-store-name">{{settings.store_name}}</h5>
                     <address>{{nl2br settings.address}}</address>
@@ -109,16 +136,46 @@
                         </div>
                     {{/if}}
                 </article>
-            {{/if}}
+            {{/if}} -->
         </section>
-        <div class="footer-copyright">
+
+        <section>
+{{#if theme_settings.social_icons_footer}}
+    <article class="footer-info-col" style="padding:25px 0px;" data-section-type="footer-webPages">
+        <h5 class="footer-info-heading">Stay Connected</h5>
+        <!-- {{> components/common/social-links}} -->
+        {{#if settings.show_newsletter_box}}
+                <div class="subscription-form-3">
+                    <form class="form" action="{{urls.subscribe.action}}" method="post" style="margin:0px;">
+                        <fieldset class="form-fieldset">
+                            <input type="hidden" name="action" value="subscribe">
+                            <input type="hidden" name="nl_first_name" value="bc">
+                            <input type="hidden" name="check" value="1">
+                            <div class="form-field">
+                                <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+                                <div class="form-prefixPostfix wrap">
+                                    <input class="form-input" id="nl_email" name="nl_email" type="email" value="{{customer.email}}" placeholder="{{lang 'newsletter.email_placeholder'}}">
+                                    <input class="button form-prefixPostfix-button--postfix" type="submit" value="Submit">
+                                </div>
+                                {{#if settings.show_newsletter_summary }}
+                                    <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+                                {{/if}}
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            {{/if}}
+    </article>
+{{/if}}
+        </section>
+        <!-- <div class="footer-copyright">
             {{> components/common/payment-icons}}
             {{#if theme_settings.show_copyright_footer}}
                 <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
             {{/if}}
-        </div>
+        </div> -->
         
-        {{#or theme_settings.show_powered_by theme_settings.show_built_by}}
+        <!-- {{#or theme_settings.show_powered_by theme_settings.show_built_by}}
             <div class="footer-copyright" style="font-size: 12px;">
                 {{#if theme_settings.show_powered_by}}
                     <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
@@ -127,7 +184,19 @@
                     <p class="powered-by">Theme by <a href="https://www.weizenyoung.com/" rel="nofollow">Weizen Young</a></p>
                 {{/if}}
             </div>
-        {{/or}}
+        {{/or}} -->
     </div>
     {{{region name="ssl_site_seal--global"}}}
 </footer>
+<section style="background:#232323;padding:25px 0px;border-top: 1px solid #3b3b3b;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-lg-left text-center">
+                <p style="margin:0;">&copy; {{moment format="YYYY"}} {{settings.store_name}}.</p>
+            </div>
+            <div class="col-lg-6 text-lg-right text-center">
+                <img src="https://cdn11.bigcommerce.com/s-5wp9ky1nrj/images/stencil/original/image-manager/bronco-distribution-payment-methods.png" alt="" width="200px" height="auto">
+            </div>
+        </div>
+    </div>
+</section>

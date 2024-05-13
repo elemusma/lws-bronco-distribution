@@ -38,3 +38,6 @@ export default class Global extends PageManager {
         rootsLoaded();
     }
 }
+
+
+// import './custom/nav.js'

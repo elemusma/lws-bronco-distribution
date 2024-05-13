@@ -15,6 +15,7 @@
 
 .footer {
     background-color: $footer-background;
+    background-color: #011e2e;
     border-top: container("border");
     padding: spacing("double") 0;
     position: relative;
@@ -52,9 +53,9 @@
         width: width("6/12");
     }
 
-    @include breakpoint("medium") {
-        width: width("4/12");
-    }
+    // @include breakpoint("medium") {
+    //     width: width("4/12");
+    // }
 
     > :first-child {
         margin-top: 0;

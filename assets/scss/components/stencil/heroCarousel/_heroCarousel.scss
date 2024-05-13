@@ -155,9 +155,11 @@
 }
 
 .heroCarousel-content {
-    background-color: rgba($carousel-bgColor, 1);
+    // background-color: rgba($carousel-bgColor, 1);
+    background-color: transparent!important;
     padding: spacing("half") spacing("single") (spacing("double"));
-    text-align: center;
+    text-align: center!important;
+    margin: auto!important;
     
     p + .heroCarousel-action{
         @include breakpoint("medium") {
@@ -178,7 +180,7 @@
         top: 50%;
         transform: translateY(-50%);
         width: remCalc(500px);
-        width: 70%;
+        width: 50%;
 
         &.heroCarousel-content--empty {
             background-color: transparent;
@@ -193,7 +195,8 @@
 }
 
 .heroCarousel-title {
-    color: $carousel-title-color;
+    // color: $carousel-title-color;
+    color: black;
     font-size: fontSize("small");
     margin: 0;
 
@@ -203,7 +206,8 @@
 }
 
 .heroCarousel-description {
-    color: $carousel-description-color;
+    // color: $carousel-description-color;
+    color: black;
     font-size: fontSize("tiny");
     margin: 0;
 
