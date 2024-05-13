@@ -1739,7 +1739,8 @@ li.pagination-item--previous a{
         flex-flow: row wrap;
     }
     .navPages-mainNav > li{
-        flex: $navPages-grow 1 auto;
+        // flex: $navPages-grow 1 auto;
+        display:inline-block;
     }
     
     .navPages-action-moreIcon{display: none;}
