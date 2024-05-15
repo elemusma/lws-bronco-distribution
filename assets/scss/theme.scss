@@ -86,6 +86,11 @@
 // 1. design files by Latino Web Studio
 //
 // -----------------------------------------------------------------------------
+:root {
+    --accent-primary: #6db2d9;
+    --accent-secondary: #011e2e;
+}
 @import "custom/custom";
 @import "custom/layout";
 @import "custom/forms-custom";
+@import "custom/fonts";

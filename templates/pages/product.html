@@ -20,11 +20,14 @@ product:
         {{/each}}
     </div>
 
-    <div>
-        <p>hello /templates/pages/product.html</p>
-        <aside>
-            {{> components/category/sidebar}}
-        </aside>
+    <div class="d-flex container">
+        <div>
+            <aside>
+                {{> components/category/sidebar}}
+            </aside>
+        </div>
+
+        <div>
         <div class="container">
             {{> components/products/product-view}}
             {{{region name="product_below_content"}}}
@@ -70,8 +73,8 @@ product:
                 </div>
             {{/gt}}
         {{/if}}
-    <p>hello /templates/pages/product.html below everything</p>
-    </div> <!-- end of container -->
+    </div>
+    </div> <!-- end of main div -->
 
     {{> components/products/schema}}
 {{/partial}}

@@ -16,7 +16,6 @@ category:
 {{/partial}}
 
 {{#partial "page"}}
-<p>hello templates/pages/category.html</p>
 <div class="page page--category">
     <section class="page-content container">
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
@@ -78,6 +77,9 @@ category:
             </main>
         </div>
     </div>
+    {{#unless customer}}
+    <h6 class="et-cat-force-login-notice">Please <a href="/login.php?action=create_account">Create an account</a> or <a href="/login.php">Login</a> to see our wide range of products.</h6>
+    {{/unless}}
 </div>
 
 {{/partial}}

@@ -11,12 +11,12 @@
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 12px;
   transition: 0.4s;
 }
 
-.active, .section:hover {
-  background-color: #ccc;
+.active, .section:hover, .section:hover:after {
+  color:var(--accent-primary);
 }
 
 .section:after {
@@ -33,10 +33,17 @@
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  /* background-color: white; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+.chevron {
+    transition:all .25s ease-in-out;
+}
+
+.section.active .chevron {
+    transform:rotate(180);
 }
 </style>
 <div class="sidebarBlock" id="sideAllCategories">
@@ -45,16 +52,25 @@
     <div class="accordion">
         {{#each categories}}
             {{#if children}}
-            <button class="section navPages-action">{{name}}</button>
+            <div class="section navPages-action" style="padding-left:0;">{{name}}
+            <!-- <div style="" class="position-relative"> -->
+                <!-- <div style="width:12px;height:12px;top:18px;right:18px;pointer-events:none;" class="position-absolute chevron">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                </div> -->
+            <!-- </div> -->
+            </div>
             <div class="panel">
+            <a class="navPages-action has-subMenu" href="{{url}}"><small>View All {{name}}</small></a>
+            <hr style="margin: 0;">
             {{#each children}}
-            <a class="navPages-action has-subMenu" href="{{url}}">{{name}}</a>
+            <a class="navPages-action has-subMenu" href="{{url}}"><small>{{name}}</small></a>
+            <hr style="margin: 0;">
             {{/each}}
             </div>
             {{else}}
-            <a class="navPages-action" href="{{url}}">{{name}}</a>
+            <a class="navPages-action" href="{{url}}" style="padding-left: 0;">{{name}}</a>
             {{/if}}
-            <hr>
+            <hr style="margin: 0;">
         {{/each}}
     </div>
     {{/if}}
@@ -125,7 +141,6 @@
     {{/and}}
 </div>
 
-<p>hello sidebar not mobile</p>
 <nav class="{{#if category.faceted_search_enabled}}facetedSearch-enabled{{/if}}">
     {{#all category.subcategories theme_settings.subcategories_left_column}}
         <div class="facetedSearch sidebarBlock">
