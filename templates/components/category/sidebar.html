@@ -1,3 +1,65 @@
+<style>
+.accordion {
+    border: none;
+}
+.section {
+  /* background-color: #eee; */
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .section:hover {
+  background-color: #ccc;
+}
+
+.section:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.section.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<div class="sidebarBlock" id="sideAllCategories">
+    <h5 class="sidebarBlock-heading">Categories</h5>
+    {{#if categories}}
+    <div class="accordion">
+        {{#each categories}}
+            {{#if children}}
+            <button class="section navPages-action">{{name}}</button>
+            <div class="panel">
+            {{#each children}}
+            <a class="navPages-action has-subMenu" href="{{url}}">{{name}}</a>
+            {{/each}}
+            </div>
+            {{else}}
+            <a class="navPages-action" href="{{url}}">{{name}}</a>
+            {{/if}}
+            <hr>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
 <div class="sidebar-nav-mobile">
     {{#if category.subcategories}}
             <a href="#subcategoryList" role="button" class="{{#if category.faceted_search_enabled}}facetedSearch-toggle{{/if}} toggleLink toggleSidebarBlock button" data-collapsible>
@@ -63,6 +125,7 @@
     {{/and}}
 </div>
 
+<p>hello sidebar not mobile</p>
 <nav class="{{#if category.faceted_search_enabled}}facetedSearch-enabled{{/if}}">
     {{#all category.subcategories theme_settings.subcategories_left_column}}
         <div class="facetedSearch sidebarBlock">
@@ -98,3 +161,39 @@
         {{/all}}
     {{/unless}}
 </nav>
+
+<a href="/new-items/" title="Image link that goes the new items category">
+    <img src="https://cdn11.bigcommerce.com/s-5wp9ky1nrj/product_images/uploaded_images/bd-banner1.jpg" witdh="100%" heigth="auto" alt="" />
+</a>
+<div style="height:50px;"></div>
+<a href="/dab-straws/" title="Image link that goes the new items category">
+    <img src="https://cdn11.bigcommerce.com/s-5wp9ky1nrj/product_images/uploaded_images/bd-banner2.jpg" witdh="100%" heigth="auto" alt="" />
+</a>
+
+<script>
+    // Set up the click event on the accordion itself
+// When a panel is clicked, that event will bubble up
+// to the accordion and can be handled there.
+document.querySelector(".accordion").addEventListener("click", function(event){
+
+// Check to see if the clicked panel was the currently open one.
+let alreadyActive = event.target.classList.contains("active");
+
+// Loop over all the panels an close each one
+document.querySelectorAll(".panel").forEach(function(panel){
+  panel.style.maxHeight = "0";
+  panel.previousElementSibling.classList.remove("active");
+});
+
+// If the clicked panel wasn't the already active one go ahead
+// and open the clicked panel. Otherwise, do nothing and leave
+// all the panels closed.
+if(!alreadyActive){
+  // Then show the clicked panel which is accessible as event.target
+  event.target.classList.add("active");
+  var panel = event.target.nextElementSibling;
+  panel.style.maxHeight = panel.scrollHeight + "px";
+}
+
+});
+</script>

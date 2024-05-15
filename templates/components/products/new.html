@@ -1,8 +1,10 @@
-<h2 class="page-heading">{{lang 'products.new' }}</h2>
+<h2 class="page-heading" style="margin:0;">New Arrivals</h2>
+<p>We just stocked up on these hot items!</p>
 
 <ul class="productGrid productGrid--maxCol{{ columns }}">
     {{#each products}}
-        <li class="product">
+        <li class="product position-relative">
+            <div class="new-arrival-tag position-absolute text-white" style="background:#3ABFE2;padding:1px 10px 4px;top:0;right:11px;z-index:1;color:white;"><small>NEW</small></div>
             {{>components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating}}
         </li>
     {{/each}}

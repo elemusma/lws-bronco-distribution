@@ -1151,10 +1151,10 @@ footer a:hover{
     padding-right: 0;
     width: 100%;
 }
-.page-sidebar{
-    background: #fff;
-    margin-bottom: 40px;
-}
+// .page-sidebar{
+//     background: #fff;
+//     margin-bottom: 40px;
+// }
 .page-sidebar .toggleLink{
     color: $general-linkColor;
 }
@@ -1923,10 +1923,10 @@ li.pagination-item--previous a{
     }
 
     // CATEGORY PAGE
-    .page-sidebar{
-        border: 1px solid $card-image-border;
-        padding: 20px 20px 0;
-    }
+    // .page-sidebar{
+    //     border: 1px solid $card-image-border;
+    //     padding: 20px 20px 0;
+    // }
     .page-sidebar #subcategoryList h5{
         border-bottom: 1px solid stencilColor('color-greyMedium');
         padding-bottom: 15px;
@@ -2477,7 +2477,7 @@ li.pagination-item--previous a{
     }
 
     // category page
-    .page-sidebar{padding: 0;}
+    // .page-sidebar{padding: 0;}
     .sidebar-nav-mobile{
         display: flex;
         flex-flow: row wrap;

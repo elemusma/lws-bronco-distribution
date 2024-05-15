@@ -21,6 +21,10 @@ product:
     </div>
 
     <div>
+        <p>hello /templates/pages/product.html</p>
+        <aside>
+            {{> components/category/sidebar}}
+        </aside>
         <div class="container">
             {{> components/products/product-view}}
             {{{region name="product_below_content"}}}
@@ -66,7 +70,8 @@ product:
                 </div>
             {{/gt}}
         {{/if}}
-    </div>
+    <p>hello /templates/pages/product.html below everything</p>
+    </div> <!-- end of container -->
 
     {{> components/products/schema}}
 {{/partial}}
