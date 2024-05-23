@@ -115,7 +115,7 @@ h3{
 
 .main-heading{
     font-family: $headings-font;
-    font-size: 32px;
+    font-size: 24px;
     text-transform: none;
     line-height: normal;
 }
@@ -1988,6 +1988,7 @@ li.pagination-item--previous a{
     .productView-details{
         color: $baseText-color;
         flex: 0 1 calc(100% - #{$pdp-image-width});
+        // width:300px;
         min-width: 40%;
     }
     

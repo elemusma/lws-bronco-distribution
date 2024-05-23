@@ -1,3 +1,10 @@
-small {
+small,.small {
     font-size:80%;
+}
+a {
+    transition:all .25s ease-in-out;
+
+    &:hover {
+        text-decoration:underline;
+    }
 }

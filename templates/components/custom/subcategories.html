@@ -1,0 +1,20 @@
+{{#if category.subcategories}}
+    <!-- <div class="themevale_subCategories"> -->
+        <div class="row" style="margin-bottom:25px;">
+            <div class="col-12">
+                <h2 style="">Subcategories</h2>
+            </div>
+            {{#each category.subcategories}}
+                <div class="col-lg-3 col-md-4" style="margin-bottom:10px;">
+                    <div class="d-flex align-items-center">
+                        <div class="" style="margin-right:10px;"><a href="{{url}}"><img src="{{getImage image '80x80' (cdn 'https://cdn11.bigcommerce.com/s-5wp9ky1nrj/stencil/cfe18030-eae5-013c-819f-46f3b42c3231/e/75caf3a0-ebf6-013c-9432-7aebb6309e78/img/CategoryDefault.jpg')}}" alt="{{name}}" style="border-radius:50%;width:50px;height:50px;"></a></div>
+                        <div class="content">
+                            <a class="title d-block" href="{{url}}" style="font-size:80%;line-height:1;color:black;">{{name}}</a>
+                            <div class="product-count small" style="">{{product_count}} {{#if product_count '>=' 2}}items{{else}} item {{/if}} </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    <!-- </div> -->
+{{/if}}

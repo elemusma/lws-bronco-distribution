@@ -17,7 +17,7 @@ category:
 
 {{#partial "page"}}
 <div class="page page--category">
-    <section class="page-content container">
+    <!-- <section class="page-content container">
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
         {{#unless theme_settings.hide_category_page_heading }}
             <h1 class="page-heading">{{category.name}}</h1>
@@ -47,9 +47,9 @@ category:
                 </div>
             {{/if}}
         {{/if}}
-    </section>
+    </section> -->
     
-    <div class="main full grid-bg">
+    <div class="main">
         <div class="container">
             {{#if category.faceted_search_enabled}}
                 <aside class="page-sidebar" id="faceted-search-container">
@@ -68,6 +68,8 @@ category:
             {{/if}}
         
             <main class="page-content" id="product-listing-container">
+                {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+                <h1 class="page-heading">{{category.name}}</h1>
                 {{#if category.products}}
                     {{> components/category/product-listing}}
                 {{else}}
@@ -75,11 +77,11 @@ category:
                 {{/if}}
                 {{{region name="category_below_content"}}}
             </main>
+            {{> components/custom/create-account-login-text}}
+            {{> components/custom/subcategories}}
         </div>
     </div>
-    {{#unless customer}}
-    <h6 class="et-cat-force-login-notice">Please <a href="/login.php?action=create_account">Create an account</a> or <a href="/login.php">Login</a> to see our wide range of products.</h6>
-    {{/unless}}
+
 </div>
 
 {{/partial}}
