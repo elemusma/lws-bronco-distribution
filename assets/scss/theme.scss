@@ -90,8 +90,15 @@
     --accent-primary: #6db2d9;
     --accent-secondary: #011e2e;
     --accent-orange: #ef6454;
+    --accent-red: #f44336;
+    --text-shadow: 1px 1px 0px rgba(0,0,0,.5);
 }
+
 @import "custom/custom";
 @import "custom/layout";
 @import "custom/forms-custom";
 @import "custom/fonts";
+@import "custom/nav";
+@import "custom/home-carousel";
+@import "custom/button";
+@import "custom/body";

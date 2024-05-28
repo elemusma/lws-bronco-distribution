@@ -1,0 +1,15 @@
+a.navPage-subMenu-action.navPages-action {
+    padding: 5px !important;
+    font-size:12px;
+}
+a.navPage-subMenu-action.navPages-action, a.navPages-action {
+    text-decoration:none!important;
+}
+.column-menu {
+    width: calc(100% + 150px) !important;
+}
+.column-menu.navPage-subMenu ul {
+    display: block !important;
+    flex: none !important;
+    width: 100%;
+}

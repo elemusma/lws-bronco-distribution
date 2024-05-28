@@ -1,0 +1,41 @@
+.btn-accent-outline {
+    border: 2px solid var(--accent-secondary);
+    border-radius: 0;
+    padding: 10px 45px;
+    transition: all .25s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+    &:hover{
+        border: 2px solid var(--accent-secondary);
+        background: var(--accent-secondary);
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.btn-main {
+    background: black;
+    padding: 10px 25px;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border:1px solid black;
+
+    &.secondary {
+        background:var(--accent-red);
+        border:none;
+
+        &:hover {
+            background:black;
+            color:white;
+        }
+    }
+
+    &:hover {
+        background: white;
+        color:black;
+        text-decoration: none;
+    }
+}
