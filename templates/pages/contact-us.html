@@ -1,10 +1,12 @@
 {{#partial "page"}}
 
+<section style="padding:50px 0px;">
 <div class="container">
+<div class="row">
+
+    <div class="col-12">
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    
-    <main class="page">
-    
+    <!-- <main class="page"> -->
         {{#unless theme_settings.hide_contact_us_page_heading }}
             <h1 class="page-heading">{{page.title}}</h1>
         {{/unless}}
@@ -18,18 +20,47 @@
                 </ul>
             </nav>
         {{/if}}
+    </div>
 
-        <p>{{{page.content}}}</p>
+        <!-- <div class="row"> -->
+        <div class="col-lg-8">
+            <p>{{{page.content}}}</p>
         
-        <div id="contact-us-page" class="page-content page-content--centered">
+        
+        <div id="contact-us-page" class="page-content w-100">
             {{#if forms.contact.success}}
                 <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
             {{else}}
                 {{> components/page/contact-us-form}}
             {{/if}}
+        </div> <!-- end of contact-us-page -->
         </div>
-    </main>
-</div>
+
+        <div class="col-lg-4">
+            <h3 class="title">Please do get in touch!</h3>
+                <div class="content">
+                    <div class="description">We'd love to hear from you - please use the form to send us your message or ideas. Or simply pop in for a cup of fresh tea and a cookie:</div>
+                    <br>
+                    <div class="store-address">{{nl2br settings.address}}</div>
+                    <br>
+                    <div class="store-email">Email: <a href="mailto:sales@broncodist.com" target="_blank">sales@broncodist.com</a></div>
+                    <div class="store-phone">Toll-free: <a href="tel:+1{{settings.phone_number}}">{{settings.phone_number}}</a></div>
+                </div>
+                <div class="content">
+                    <p class="sub-title">Opening Hours:</p>
+                    <div class="item1">Monday to Friday: 8am - 5pm</div>
+                    <div class="item2">Saturday: 9am - 5pm</div>
+                    <div class="item3">Sunday: Closed</div>
+                </div>
+        </div>
+
+        <!-- </div> -->
+    <!-- </main> -->
+</div> <!-- end of row -->
+</div> <!-- end of container -->
+</section>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.2678396072038!2d-104.98420252443483!3d39.80098347154534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c79c8f39af9cb%3A0xcd0cdcc61e7ad608!2sBronco%20Distribution!5e0!3m2!1sen!2sus!4v1717004389347!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 {{/partial}}
 

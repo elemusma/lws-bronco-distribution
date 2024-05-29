@@ -1,0 +1,29 @@
+<!-- <link href="./owl-carousel/" rel="stylesheet">
+<link href="https://assets.codepen.io/2054761/owl.theme.default.min.css" rel="stylesheet">
+<link href="https://assets.codepen.io/2054761/lightbox.min.css" rel="stylesheet"> -->
+
+<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.carousel.min.css'}}">
+<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.theme.default.min.css'}}">
+
+<!-- <p>hello from templates/components/custom/home-carousel</p> -->    
+
+{{#if products.new}}
+    <div class="featured-products-carousel owl-carousel owl-theme">
+    {{#each products.new}}
+    {{#if image}}
+
+    {{> components/products/card }}
+
+
+            {{/if}}
+    {{/each}}
+</div> <!-- end of carousel -->
+{{else}}
+<p>No new products available.</p>
+{{/if}}
+      
+
+
+<script src="{{cdn 'assets/owl-carousel/jquery.min.js'}}"></script>
+<script src="{{cdn 'assets/owl-carousel/owl.carousel.min.js'}}"></script>
+<script src="{{cdn 'assets/owl-carousel/owl-carousels.js'}}"></script>

@@ -1,9 +1,11 @@
 {{#partial "page"}}
 
-<div class="container">
-    <p>hello templates/pages/page.html</p>
+<section style="padding:50px 0px;">
+<div class="container" style="padding-bottom:2.5rem;">
+    <div class="row">
+        <div class="col-12">
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <main class="page">
+    <!-- <main class="page"> -->
         {{#unless theme_settings.hide_page_heading }}
             <h1 class="page-heading">{{ page.title }}</h1>
         {{/unless}}
@@ -38,8 +40,11 @@
                 {{/each}}
             </ul>
         {{/if}}
-    </main>
-</div>
+    <!-- </main> -->
+</div> <!-- end of col-12 -->
+</div> <!-- end of row -->
+</div> <!-- end of container -->
+</section>
 
 {{/partial}}
 

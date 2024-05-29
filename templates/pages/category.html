@@ -49,38 +49,52 @@ category:
         {{/if}}
     </section> -->
     
-    <div class="main">
+    <section class="" style="padding:50px 0px;">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
             {{#if category.faceted_search_enabled}}
-                <aside class="page-sidebar" id="faceted-search-container">
+                <!-- <aside class="page-sidebar" id="faceted-search-container"> -->
                     {{> components/category/sidebar}}
-                </aside>
+                <!-- </aside> -->
             {{else}}
                 {{#all category.subcategories theme_settings.subcategories_left_column}}
-                    <aside class="page-sidebar" id="faceted-search-container">
+                    <!-- <aside class="page-sidebar" id="faceted-search-container"> -->
                         {{> components/category/sidebar}}
-                    </aside>
+                    <!-- </aside> -->
                 {{else all category.shop_by_price theme_settings.shop_by_price_visibility}}
-                    <aside class="page-sidebar" id="faceted-search-container">
+                    <!-- <aside class="page-sidebar" id="faceted-search-container"> -->
                         {{> components/category/sidebar}}
-                    </aside>
+                    <!-- </aside> -->
                 {{/all}}
             {{/if}}
+        </div>
         
-            <main class="page-content" id="product-listing-container">
+        <div class="col-lg-9" style="">
+            <!-- <main class="page-content" id="product-listing-container"> -->
                 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
                 <h1 class="page-heading">{{category.name}}</h1>
+                {{> components/custom/subcategories}}
                 {{#if category.products}}
                     {{> components/category/product-listing}}
                 {{else}}
                     <p>{{lang 'categories.no_products'}}</p>
                 {{/if}}
+
+                <div class="text-right" style="padding:25px 0px;">
+                    <a class="" href="{{urls.compare}}" data-compare-nav>Compare <span class="countPill countPill--positive countPill--alt">0</span> Items</a>
+                </div>
+                {{> components/custom/create-account-login-text}}
+                
+
                 {{{region name="category_below_content"}}}
-            </main>
-            {{> components/custom/create-account-login-text}}
-            {{> components/custom/subcategories}}
+            <!-- </main> -->
         </div>
-    </div>
+            
+            
+        </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of main -->
 
 </div>
 

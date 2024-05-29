@@ -12,23 +12,28 @@ product:
 {{inject 'productId' product.id}}
 
 {{#partial "page"}}
+
+<section style="padding:50px 0px;">
     <div class="container">
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <div class="row">
+            <div class="col-12">
+                {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+                
+                {{#each product.shipping_messages}}
+                {{> components/common/alert/alert-info message}}
+                {{/each}}
+            </div>
 
-        {{#each product.shipping_messages}}
-            {{> components/common/alert/alert-info message}}
-        {{/each}}
-    </div>
 
-    <div class="d-flex container">
-        <div>
+
+        <div class="col-lg-3">
             <aside>
                 {{> components/category/sidebar}}
             </aside>
         </div>
 
-        <div>
-        <div class="container">
+        <div class="col-lg-9">
+        <div class="">
             {{> components/products/product-view}}
             {{{region name="product_below_content"}}}
         </div>
@@ -74,7 +79,10 @@ product:
             {{/gt}}
         {{/if}}
     </div>
-    </div> <!-- end of main div -->
+
+    </div> <!-- end of row -->
+    </div> <!-- end of container -->
+    </section>
 
     {{> components/products/schema}}
 {{/partial}}

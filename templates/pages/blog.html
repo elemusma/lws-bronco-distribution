@@ -8,15 +8,21 @@ blog:
 {{#partial "page"}}
 
 <div class="container">
+    <p>hello from templates/pages/blog.html</p>
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
     <main class="page">
         {{#unless theme_settings.hide_blog_page_heading }}
             <h1 class="page-heading">{{ blog.name }}</h1>
         {{/unless}}
-        <div class="blog-posts">
-            {{#each blog.posts}}
-                {{> components/blog/post post=this}}
-            {{/each}}
+        <div class="row">
+            <div class="col-lg-3">
+                {{> components/category/sidebar}}
+            </div>
+            <div class="col-lg-9">
+                {{#each blog.posts}}
+                    {{> components/blog/post post=this}}
+                {{/each}}
+            </div>
         </div>
     
         {{> components/common/paginator pagination.blog}}

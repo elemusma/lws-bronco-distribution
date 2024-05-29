@@ -103,7 +103,7 @@
 .form-actions {
     @include grid-row();
     display: block;
-    text-align: center;
+    // text-align: center;
 
     @include breakpoint("small") {
         margin-top: spacing("single");
@@ -367,7 +367,7 @@
 
     .form-field {
         @include grid-column(4);
-        margin-bottom: 0;
+        // margin-bottom: 0;
         padding-left: $form-minMaxRow-column-gutter;
         padding-right: $form-minMaxRow-column-gutter;
     }

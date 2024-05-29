@@ -530,7 +530,7 @@
             "order": "Order Number",
             "rma": "RMA Number",
             "question": "Comments/Questions",
-            "submit": "Submit Form",
+            "submit": "Send Message to Bronco Distribution",
             "successful": "We've received your feedback and will respond shortly if required. <a href=\"{shopPath}\">Continue</a>."
         },
         "create_account": {
