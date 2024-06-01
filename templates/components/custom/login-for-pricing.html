@@ -1,5 +1,5 @@
-{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-    {{> components/products/price price=product.price}}
+{{#if customer}}
+
 {{else}}
-    {{> components/common/login-for-pricing}}
-{{/or}}
+<p><strong>Login for pricing</strong></p>
+{{/if}}

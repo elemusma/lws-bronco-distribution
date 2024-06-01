@@ -6,6 +6,6 @@
     "product": {}
   },
   "normalStoreUrl": "https://broncodistribution.com",
-  "port": 3000,
+  "port": "4000",
   "packageManager": "npm"
 }

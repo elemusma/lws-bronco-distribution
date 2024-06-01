@@ -20,10 +20,10 @@
                 <svg><use xlink:href="#icon-user" /></svg>
             </i>
             {{#if customer}}
-                <a class="navUser-action" href="{{urls.account.index}}">{{lang 'common.account'}}</a> or
+                <a class="navUser-action inside-if-customer" href="{{urls.account.index}}">{{lang 'common.account'}}</a> or
                 <a class="navUser-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
             {{else}}
-                <a class="navUser-action"
+                <a class="navUser-action outside-if-customer"
                    href="{{urls.auth.login}}"
                    aria-label="{{lang 'common.login'}}"
                 >

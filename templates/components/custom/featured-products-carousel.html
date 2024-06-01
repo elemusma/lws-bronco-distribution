@@ -7,12 +7,16 @@
 
 <!-- <p>hello from templates/components/custom/home-carousel</p> -->    
 
-{{#if products.new}}
-    <div class="featured-products-carousel owl-carousel owl-theme">
+<p style="font-size:20px;"><strong>FEATURED PRODUCTS</strong></p>
+<hr style="margin:0px;">
+{{#if products.featured}}
+    <div class="featured-products-carousel owl-carousel owl-theme text-center">
     {{#each products.new}}
     {{#if image}}
 
-    {{> components/products/card }}
+    <div class="text-center">
+        {{> components/products/card }}
+    </div>
 
 
             {{/if}}
@@ -21,6 +25,8 @@
 {{else}}
 <p>No new products available.</p>
 {{/if}}
+
+{{> components/custom/login-for-pricing}}
       
 
 
