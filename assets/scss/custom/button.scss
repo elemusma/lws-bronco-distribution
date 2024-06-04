@@ -33,6 +33,15 @@
         }
     }
 
+    &.orange {
+        background: var(--accent-orange);
+        border:1px solid var(--accent-orange);
+        &:hover {
+            background:white;
+            color:var(--accent-orange);
+        }
+    }
+
     &:hover {
         background: white;
         color:black;

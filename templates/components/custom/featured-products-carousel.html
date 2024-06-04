@@ -10,12 +10,13 @@
 <p style="font-size:20px;"><strong>FEATURED PRODUCTS</strong></p>
 <hr style="margin:0px;">
 {{#if products.featured}}
-    <div class="featured-products-carousel owl-carousel owl-theme text-center">
+    <div class="featured-products-carousel owl-carousel owl-theme text-center" style="margin-bottom:25px;">
     {{#each products.new}}
     {{#if image}}
 
     <div class="text-center">
         {{> components/products/card }}
+        {{> components/custom/login-for-pricing}}
     </div>
 
 
@@ -26,7 +27,7 @@
 <p>No new products available.</p>
 {{/if}}
 
-{{> components/custom/login-for-pricing}}
+
       
 
 

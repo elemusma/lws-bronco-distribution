@@ -1,12 +1,15 @@
 {{inject 'passwordRequirements' settings.password_requirements}}
 {{inject 'recaptchaTitle' (lang 'create_account.recaptcha_title')}}
 {{#partial "page"}}
+<section style="padding:50px 0px;">
 <div class="container">
+<div class="row">
+<div class="col-12">
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
     <h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
 
-    <div class="account account--fixed">
-        <div class="account-body">
+    <div class="account">
+        <div class="create-account-body">
             {{#if forms.create_account.error}}
                 {{> components/common/alert/alert-error forms.create_account.error}}
             {{/if}}
@@ -24,13 +27,16 @@
                     </div>
                     {{{ forms.create_account.recaptcha.markup}}}
                     <div class="form-actions">
-                        <input type="submit" class="button button--primary" value="{{lang 'forms.create_account.submit_value' }}" />
+                        <input type="submit" class="btn-main orange" value="{{lang 'forms.create_account.submit_value' }}" />
                     </div>
                 </form>
             {{/if}}
         </div>
     </div>
 
-</div>
+</div> <!-- end of col-12 -->
+</div> <!-- end of row -->
+</div> <!-- end of container -->
+</section>
 {{/partial}}
 {{> layout/base}}

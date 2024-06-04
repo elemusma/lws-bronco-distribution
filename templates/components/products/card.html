@@ -27,7 +27,14 @@
             {{lang 'common.login_for_pricing'}}
         {{/or}}"
     {{/if}}>
-    <figure class="card-figure">
+    <figure class="card-figure text-center">
+        <!-- <p>#if show_wishlist goes here</p> -->
+            <a href="/wishlist.php?action=add&product_id={{id}}" class="product-show-on-hover position-absolute card-button-wishlist{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}{{#if theme_settings.show_product_quick_view_mb}} has-quickviewMb{{/if}}" title="{{lang 'account.wishlists.add_item'}}" aria-label="{{lang 'account.wishlists.add_item'}}" style="z-index:1;top:50%;left:50%;transform:translate(-50%, -50%);">
+                <div style="width:35px;height:35px;border-radius:50%;background:var(--accent-primary);display:flex;align-items:center;justify-content:center;">
+                    <svg style="width:20px;height:20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                </div>
+            </a>
+        <!-- <p>#if show_wishlist goes here</p> -->
         {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
             {{#if theme_settings.show_sale_badges}}
                 <div class="sale-flag-side">
@@ -67,49 +74,19 @@
                 <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
             </div>
         </a>
-        {{#or theme_settings.show_product_quick_view show_cart_action show_compare}}
-            <figcaption class="card-figcaption">
-                <div class="card-figcaption-body">
-                    <div class="card-figcaption--action-buttons">
-                    {{#unless hide_product_quick_view}}
-                        {{#if theme_settings.show_product_quick_view}}
-                            {{#if settings.data_tag_enabled}}
-                                <a class="button button--secondary button--small card-figcaption-button quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
-                            {{else}}
-                                <a class="button button--secondary button--small card-figcaption-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
-                            {{/if}}
-                        {{/if}}
-                    {{/unless}}
-                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                        {{#if show_cart_action}}
-                            {{#if has_options}}
-                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
-                            {{/if}}
-                            {{#if pre_order}}
-                                <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
-                            {{/if}}
-                            {{#if add_to_cart_url }}
-                                <a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
-                            {{/if}}
-                            {{#if out_of_stock_message }}
-                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                            {{/if}}
-                        {{/if}}
-                    {{/or}}
-                    </div>
-                    {{#if show_compare}}
-                        <label class="card-compare" for="compare-{{id}}">
-                            <input type="checkbox" class="compare-input" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"> <span style="display:none;">Remove from </span>{{lang 'products.compare'}}
-                        </label>
-                        <div class="compare-button-wrap">
-                            <a class="compare-button" href="{{urls.compare}}" data-compare-nav>Compare <span class="countPill countPill--positive countPill--alt"></span> Items</a>
-                        </div>
-                    {{/if}}
-                </div>
-            </figcaption>
-        {{/or}}
+        {{#unless hide_product_quick_view}}
+        <div class="product-show-on-hover">
+            {{#if theme_settings.show_product_quick_view}}
+                {{#if settings.data_tag_enabled}}
+                    <a class="btn-main black w-100 text-center" style="padding:0px 25px !important;" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                {{else}}
+                    <a class="btn-main black w-100 text-center" style="padding:0px 25px !important;" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                {{/if}}
+            {{/if}}
+        </div>
+        {{/unless}}
     </figure>
-    <div class="card-body">
+    <div class="card-body text-center justify-content-center">
         <div>
             <h4 class="card-title">
                 <a aria-label="{{> components/products/product-info}}" 
@@ -146,5 +123,15 @@
             
             {{> components/products/bulk-discount-rates}}
         </div>
+        {{#if show_compare}}
+        <div class="product-show-on-hover">
+            <label class="card-compare" for="compare-{{id}}">
+                <input type="checkbox" class="compare-input" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"> <span style="display:none;">Remove from </span>{{lang 'products.compare'}}
+            </label>
+            <div class="compare-button-wrap">
+                <a class="compare-button" href="{{urls.compare}}" data-compare-nav>Compare <span class="countPill countPill--positive countPill--alt"></span> Items</a>
+            </div>
+        </div>
+        {{/if}}
     </div>
 </article>

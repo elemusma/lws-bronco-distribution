@@ -102,7 +102,7 @@
 
 .form-actions {
     @include grid-row();
-    display: block;
+    // display: block;
     // text-align: center;
 
     @include breakpoint("small") {

@@ -6,7 +6,7 @@ $logo-width: get-width(stencilString('logo_size'));
 $logo-height: get-height(stencilString('logo_size'));
 $logo-height-mobile: get-height(stencilString('logo_size_mobile'));
 $content-maxWidth: 1230px; // includes padding. make 'none' for full width
-$productGrid-imageHeight: #{stencilNumber("card-image-ratio", "") * 285}px;
+$productGrid-imageHeight: #{stencilNumber("card-image-ratio", "") * 223}px;
 $subcategoryGrid-imageHeight: #{stencilNumber("subcategory-image-ratio", "") * 285}px;
 $logo_fontSize: stencilNumber("logo_fontSize");
 $logo_fontSize_mobile: stencilNumber("logo_fontSize_mobile");
