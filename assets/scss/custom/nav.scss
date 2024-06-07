@@ -13,3 +13,18 @@ a.navPage-subMenu-action.navPages-action, a.navPages-action {
     flex: none !important;
     width: 100%;
 }
+
+// start of mobile
+li.navUser-item.navUser-item--mobile-search {
+    display: none;
+}
+
+.header.slim li.navUser-item.navUser-item--mobile-search {
+    display: block;
+}
+
+@media only screen and (max-width:767px) {
+    a.wishlist-icon {
+        padding-right: 35px;
+    }
+}
