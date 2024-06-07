@@ -52,7 +52,7 @@ category:
     <section class="" style="padding:50px 0px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 sidebar-col">
             {{#if category.faceted_search_enabled}}
                 <!-- <aside class="page-sidebar" id="faceted-search-container"> -->
                     {{> components/category/sidebar}}
@@ -70,7 +70,7 @@ category:
             {{/if}}
         </div>
         
-        <div class="col-lg-9" style="">
+        <div class="col-lg-9 main-products-col" style="">
             <!-- <main class="page-content" id="product-listing-container"> -->
                 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
                 <h1 class="page-heading">{{category.name}}</h1>

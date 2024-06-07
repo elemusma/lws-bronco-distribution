@@ -25,6 +25,14 @@ li.navUser-item.navUser-item--mobile-search {
 
 @media only screen and (max-width:767px) {
     a.wishlist-icon {
-        padding-right: 35px;
+        transform: translate(-20px, -3px) !important;
+        display: block;
     }
+}
+
+body.hide-btob {
+    margin-top:0px!important;
+}
+header.hide-btob {
+    top:0px !important;
 }
