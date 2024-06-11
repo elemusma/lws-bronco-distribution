@@ -1,36 +1,15 @@
-<!-- <link href="./owl-carousel/" rel="stylesheet">
-<link href="https://assets.codepen.io/2054761/owl.theme.default.min.css" rel="stylesheet">
-<link href="https://assets.codepen.io/2054761/lightbox.min.css" rel="stylesheet"> -->
-
-<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.carousel.min.css'}}">
-<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.theme.default.min.css'}}">
-
-<!-- <p>hello from templates/components/custom/home-carousel</p> -->    
-
 <p style="font-size:20px;"><strong>FEATURED PRODUCTS</strong></p>
 <hr style="margin:0px;">
+<div class="featured-products-carousel owl-carousel owl-theme text-center" style="margin-bottom:25px;">
 {{#if products.featured}}
-    <div class="featured-products-carousel owl-carousel owl-theme text-center" style="margin-bottom:25px;">
-    {{#each products.new}}
-    {{#if image}}
+    {{#each products.featured}}
 
     <div class="text-center">
-        {{> components/products/card }}
+        <div class="new-arrival-tag position-absolute text-white" style="background:#3ABFE2;padding:1px 10px 4px;top:0;right:11px;z-index:1;color:white;"><small>NEW</small></div>
+        {{>components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating}}
         {{> components/custom/login-for-pricing}}
     </div>
 
-
-            {{/if}}
     {{/each}}
-</div> <!-- end of carousel -->
-{{else}}
-<p>No new products available.</p>
 {{/if}}
-
-
-      
-
-
-<script src="{{cdn 'assets/owl-carousel/jquery.min.js'}}"></script>
-<script src="{{cdn 'assets/owl-carousel/owl.carousel.min.js'}}"></script>
-<script src="{{cdn 'assets/owl-carousel/owl-carousels.js'}}"></script>
+</div> <!-- end of carousel -->

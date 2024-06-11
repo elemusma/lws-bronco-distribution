@@ -1,5 +1,5 @@
 {
-  "name": "Roots",
+  "name": "Roots - Custom - Latino Web Studio",
   "version": "5.0.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -49,7 +49,8 @@
     "hide_blog_page_heading": false,
     "hide_contact_us_page_heading": false,
     "homepage_new_products_count": 4,
-    "homepage_featured_products_count": 4,
+    "homepage_featured_products_count": 10,
+    "homepage_show_featured_products": true,
     "homepage_top_products_count": 4,
     "homepage_show_carousel": true,
     "homepage_show_carousel_arrows": true,

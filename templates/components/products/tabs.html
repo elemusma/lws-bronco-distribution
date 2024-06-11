@@ -22,6 +22,14 @@
                 <div {{#if schema}} itemprop="description"{{/if}}>
                     {{{product.description}}}
                     {{{snippet 'product_description'}}}
+                    </div>
+
+                <div class="custom-ask-experts bold">
+                    <strong>
+                        <span class="icon">?</span>
+                        <span>Have Questions?</span>
+                        <span class="openModalBtn" style="text-decoration:underline;cursor:pointer;" data-modal-id="askExperts">Ask an Expert</span>
+                    </strong>
                 </div>
                 
                 {{#if product.videos.list.length}}
@@ -156,3 +164,101 @@
         </div>
     </div>
 {{/and}}
+<!-- The first Modal -->
+<div id="askExperts" class="modal-custom">
+    <!-- Modal content -->
+    <div class="modal-content-custom">
+      <span class="close-custom">&times;</span>
+      <div class="text-center">
+          <p class="lead" style="margin-bottom:0px;"><strong>HAVE QUESTIONS?</strong></p>
+          <p>We will follow up with you via email within 24-36 hours</p>
+          <hr>
+        </div> <!-- end of text-center -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('Ewa6TenJt2-b0K8ih');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_6fdnook', 'template_4f9wnuk', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                      // alert('Thank you for sending the form. We will get back to you shortly.');
+                      window.location.href = "https://broncodistribution.com/thank-you/";
+                      document.getElementById('contact-form').reset();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                      alert('There was an error submitting the form. Please try again later.')
+                    });
+            });
+        }
+    </script>
+
+<form id="contact-form" class="product-single__form" style="padding:15px;">
+    <input type="hidden" name="contact_number">
+
+<input type="text" name="user_name" placeholder="Your Name" class="w-100" style="margin-bottom:15px;padding:5px 15px;">
+<input type="email" name="user_email" placeholder="Email Address" class="w-100" style="margin-bottom:15px;padding:5px 15px;">
+<input type="tel" name="user_phone" placeholder="Phone Number" class="w-100" style="margin-bottom:15px;padding:5px 15px;">
+
+<div class="form-field form-field-radio d-md-flex">
+    <label class="form-label" style="flex: 0 0 20%;">Do you need:</label>
+    <input class="form-radio" id="pricing-radio" type="radio" name="type_need" checked="" value="Pricing">
+    <label class="form-label" for="pricing-radio" style="flex: 0 0 25%;">Pricing</label>
+    <input class="form-radio" id="answers-radio" type="radio" name="type_need" value="Answers">
+    <label class="form-label" for="answers-radio" style="flex: 0 0 25%;">Answers</label>
+    <input class="form-radio" id="both-radio" type="radio" name="type_need" value="Pricing &amp; Answers">
+    <label class="form-label" for="both-radio" style="flex: 0 0 20%;">Both</label>
+</div>
+
+<div>
+<label for="user_message">What can I help you with today?</label>
+<textarea name="user_message" style="" class="w-100"></textarea>
+</div>
+
+
+<label class="form-label form-label-custom">How would you like me to contact you?</label>
+<div class="form-field form-field-radio d-md-flex">
+    <input class="form-radio" id="phone-radio" type="radio" name="type_contact" checked="" value="Phone">
+    <label class="form-label" for="phone-radio" style="flex:0 0 20%;">Phone</label>
+    <input class="form-radio" id="email-radio" type="radio" name="type_contact" value="Email">
+    <label class="form-label" for="email-radio" style="flex:0 0 20%;">Email</label>
+    <input class="form-radio" id="both-radio-2" type="radio" name="type_contact" value="Phone &amp; Email">
+    <label class="form-label" for="both-radio-2" style="flex:0 0 20%;">Both</label>
+</div>
+
+
+<input type="hidden" name="product_name" value="{{product.title}}">
+<input type="hidden" name="form_url" value="" id="form-url">
+<input type="hidden" name="page_title_custom" value="" id="page-title">
+<input type="submit" value="Submit Request" class="btn-main orange w-100">
+</form>
+
+<script>
+  
+  
+    let formURL = document.querySelector('#form-url');
+    formURL.value = window.location.href;
+    
+  
+    const pageTitle = document.querySelector('h1');
+    const pageTitleInner = pageTitle.innerText;
+    
+    let pageTitleInput = document.querySelector('#page-title');
+    
+    console.log(pageTitle.textContent);
+    pageTitleInput.value = pageTitle.textContent;
+    
+                                        </script>
+
+    
+    </div>
+  </div>

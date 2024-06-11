@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.carousel.min.css'}}">
+<link rel="stylesheet" href="{{cdn 'assets/owl-carousel/owl.theme.default.min.css'}}">
 <style>
 .accordion {
     border: none;
@@ -44,6 +46,10 @@
 
 .section.active .chevron {
     transform:rotate(180);
+}
+
+.featured-products-carousel img {
+    height: 200px !important;
 }
 </style>
 
@@ -113,3 +119,7 @@ if(!alreadyActive){
 
 });
 </script>
+
+<script src="{{cdn 'assets/owl-carousel/jquery.min.js'}}"></script>
+<script src="{{cdn 'assets/owl-carousel/owl.carousel.min.js'}}"></script>
+<script src="{{cdn 'assets/owl-carousel/owl-carousels.js'}}"></script>
